@@ -2,7 +2,16 @@
 
 import { motion } from "framer-motion";
 
-interface ShinyButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+type AnchorAttrs = Omit<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  | "onAnimationStart"
+  | "onAnimationEnd"
+  | "onAnimationIteration"
+  | "onDragStart"
+  | "onDragEnd"
+  | "onDrag"
+>;
+interface ShinyButtonProps extends AnchorAttrs {
   children: React.ReactNode;
   className?: string;
 }
@@ -21,7 +30,7 @@ export function ShinyButton({ children, className = "", ...props }: ShinyButtonP
         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-12"
         initial={{ x: "-100%" }}
         whileHover={{ x: "100%" }}
-        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const }}
       />
     </motion.a>
   );
