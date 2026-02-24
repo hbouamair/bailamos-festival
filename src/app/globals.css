@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+/* Marrakech Bailamos — 2026 design system */
+:root {
+  --background: #050508;
+  --foreground: #fafafa;
+  --white: #ffffff;
+  --yellow: #facc15;
+  --yellow-light: #fde047;
+  --purple: #6b21a8;
+  --purple-light: #7c3aed;
+  --purple-dark: #5b21b6;
+  --red: #b91c1c;
+  --red-light: #dc2626;
+  --green: #16a34a;
+  --gold: #eab308;
+  --muted: #94a3b8;
+  --muted-strong: #64748b;
+  --card-bg: #0f0f14;
+  --surface-1: #12121a;
+  --surface-2: #18181f;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.5rem;
+  --radius-full: 9999px;
+  --shadow-soft: 0 4px 24px -4px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 60px -12px rgba(107, 33, 168, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-white: var(--white);
+  --color-yellow: var(--yellow);
+  --color-yellow-light: var(--yellow-light);
+  --color-purple: var(--purple);
+  --color-purple-light: var(--purple-light);
+  --color-purple-dark: var(--purple-dark);
+  --color-red: var(--red);
+  --color-red-light: var(--red-light);
+  --color-green: var(--green);
+  --color-gold: var(--gold);
+  --color-muted: var(--muted);
+  --color-card-bg: var(--card-bg);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-league-spartan), "League Spartan", "League Spartan Fallback", ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 24px -4px rgba(250, 204, 21, 0.25); }
+  50% { box-shadow: 0 0 48px -4px rgba(250, 204, 21, 0.4); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* 2026 glass & surfaces */
+.glass {
+  background: rgba(15, 15, 20, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.glass-card {
+  background: rgba(18, 18, 26, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+.glass-panel {
+  background: rgba(5, 5, 8, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Modern Card 2026 — unified card system */
+.card-2026 {
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border);
+  background: rgba(18, 18, 26, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-2026:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.35);
+}
+
+.card-2026-elevated {
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border);
+  background: rgba(18, 18, 26, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-2026-elevated:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  transform: translateY(-2px);
+}
+
+.card-2026-accent {
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(250, 204, 21, 0.2);
+  background: linear-gradient(135deg, rgba(107, 33, 168, 0.08) 0%, rgba(18, 18, 26, 0.9) 50%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px -8px rgba(107, 33, 168, 0.15);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-2026-accent:hover {
+  border-color: rgba(250, 204, 21, 0.3);
+  box-shadow: 0 12px 40px -8px rgba(107, 33, 168, 0.2);
+}
+
+.card-2026-pill {
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Site-wide background: soft gradient orbs + depth */
+.bg-site-gradient {
+  background-image:
+    radial-gradient(ellipse 100% 60% at 50% -15%, rgba(107, 33, 168, 0.14), transparent 48%),
+    radial-gradient(ellipse 70% 50% at 88% 35%, rgba(250, 204, 21, 0.06), transparent 50%),
+    radial-gradient(ellipse 60% 45% at 12% 75%, rgba(107, 33, 168, 0.07), transparent 50%);
+}
+
+/* Subtle noise overlay for depth */
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--purple);
+  color: var(--white);
+}
+
+/* Small text uses Montserrat (with Montserrat Fallback) */
+.text-xs,
+.text-sm {
+  font-family: var(--font-montserrat), "Montserrat", "Montserrat Fallback", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* All h3 use League Spartan */
+h3 {
+  font-family: var(--font-league-spartan), "League Spartan", "League Spartan Fallback", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Navbar: main links use Bebas Neue */
+.font-nav {
+  font-family: var(--font-bebas-neue), "Bebas Neue", "Bebas Neue Fallback", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Navbar: dropdown items use Montserrat */
+.font-dropdown {
+  font-family: var(--font-montserrat), "Montserrat", "Montserrat Fallback", ui-sans-serif, system-ui, sans-serif;
+}
